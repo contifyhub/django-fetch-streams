@@ -42,13 +42,15 @@ class Stream(models.Model):
     """
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
     name = models.CharField(max_length=75)
-    stream_id = models.CharField(max_length=100, db_index=True, unique=True)
+    subscription_id = models.CharField(
+        max_length=100, db_index=True, unique=True
+    )
     active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now=True, db_index=True)
     updated_on = models.DateTimeField(db_index=True, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.name}: {self.stream_id}'
+        return f'{self.name}: {self.subscription_id}'
 
     def save(self, *args, **kwargs):
         self.updated_on = datetime.datetime.now()

@@ -24,6 +24,7 @@ class DnaStream(models.Model):
     """
     name = models.CharField(max_length=75)
     stream_id = models.CharField(max_length=100, db_index=True)
+    active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now=True, db_index=True)
     updated_on = models.DateTimeField(db_index=True, null=True, blank=True)
 

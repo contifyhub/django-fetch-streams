@@ -64,7 +64,7 @@ class StreamMessage(models.Model):
     stream = models.ForeignKey(
         Stream, db_index=True, on_delete=models.CASCADE
     )
-    message_id = models.CharField(max_length=100, unique=True)
+    message_id = models.CharField(max_length=100)
     raw_message_dict = JSONField(
         default=None, null=True, blank=True,
         help_text='contains data received from stream'

@@ -12,7 +12,7 @@ class StreamMessageStatus(IntEnum):
 
 
 @unique
-class StreamDataAction(Enum):
+class StreamMessageAction(Enum):
     ADD = 'add'
     UPDATE = 'rep'
     DELETE = 'del'
@@ -76,8 +76,8 @@ class StreamMessage(models.Model):
     )
     action = models.CharField(
         db_index=True, max_length=5,
-        choices=[(item.value, item.name) for item in StreamDataAction],
-        default=StreamDataAction.ADD.value
+        choices=[(item.value, item.name) for item in StreamMessageAction],
+        default=StreamMessageAction.ADD.value
     )
     created_on = models.DateTimeField(auto_now=True, db_index=True)
     updated_on = models.DateTimeField(db_index=True, null=True, blank=True)

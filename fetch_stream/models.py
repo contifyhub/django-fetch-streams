@@ -9,7 +9,8 @@ from django.db import models
 class StreamMessageStatus(IntEnum):
     PENDING = 1
     FETCHED = 2
-
+    DELETED = 3
+    UPDATED = 4
 
 @unique
 class StreamMessageAction(Enum):

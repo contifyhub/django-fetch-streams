@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('message_id', models.CharField(max_length=100)),
-                ('raw_message_dict', django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=None, help_text='contains data received from stream', null=True)),
+                ('raw_message_dict', models.JSONField(blank=True, default=None, help_text='contains data received from stream', null=True)),
                 ('status', models.IntegerField(choices=[(1, 'PENDING'), (2, 'FETCHED')], db_index=True, default=1)),
                 ('action', models.CharField(choices=[('add', 'ADD'), ('rep', 'UPDATE'), ('del', 'DELETE')], db_index=True, default='add', max_length=5)),
                 ('created_on', models.DateTimeField(auto_now=True, db_index=True)),

@@ -1,7 +1,6 @@
 import datetime
 from enum import Enum, IntEnum, unique
 
-from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 
@@ -70,7 +69,7 @@ class StreamMessage(models.Model):
         Stream, db_index=True, on_delete=models.CASCADE
     )
     message_id = models.CharField(max_length=100)
-    raw_message_dict = JSONField(
+    raw_message_dict = models.JSONField(
         default=None, null=True, blank=True,
         help_text='contains data received from stream'
     )
